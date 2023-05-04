@@ -1,12 +1,14 @@
 """
 A subclass of MutableAttr that has defaultdict support.
 """
-from collections import Mapping
+try:
+    from collections.abc import Mapping
+except ImportError:
+    from collections import Mapping
 
 import six
 
 from attrdict.mixins import MutableAttr
-
 
 __all__ = ['AttrDefault']
 
@@ -15,6 +17,7 @@ class AttrDefault(MutableAttr):
     """
     An implementation of MutableAttr with defaultdict support
     """
+
     def __init__(self, default_factory=None, items=None, sequence_type=tuple,
                  pass_key=False):
         if items is None:

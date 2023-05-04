@@ -1,12 +1,14 @@
 """
 An implementation of MutableAttr.
 """
-from collections import Mapping
+try:
+    from collections.abc import Mapping
+except ImportError:
+    from collections import Mapping
 
 import six
 
 from attrdict.mixins import MutableAttr
-
 
 __all__ = ['AttrMap']
 
@@ -15,6 +17,7 @@ class AttrMap(MutableAttr):
     """
     An implementation of MutableAttr.
     """
+
     def __init__(self, items=None, sequence_type=tuple):
         if items is None:
             items = {}

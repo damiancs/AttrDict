@@ -1,5 +1,5 @@
 """
-Tests for depricated methods.
+Tests for deprecated methods.
 """
 from nose.tools import assert_true, assert_false
 from six import PY2
@@ -8,7 +8,7 @@ from six import PY2
 if PY2:
     def test_has_key():
         """
-        The now-depricated has_keys method
+        The now-deprecated has_keys method
         """
         from attrdict.dictionary import AttrDict
 

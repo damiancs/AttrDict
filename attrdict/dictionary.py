@@ -1,10 +1,9 @@
 """
 A dict that implements MutableAttr.
 """
-from attrdict.mixins import MutableAttr
-
 import six
 
+from attrdict.mixins import MutableAttr
 
 __all__ = ['AttrDict']
 
@@ -13,6 +12,7 @@ class AttrDict(dict, MutableAttr):
     """
     A dict that implements MutableAttr.
     """
+
     def __init__(self, *args, **kwargs):
         super(AttrDict, self).__init__(*args, **kwargs)
 
