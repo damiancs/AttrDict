@@ -2,13 +2,16 @@
 Mixin Classes for Attr-support.
 """
 from abc import ABCMeta, abstractmethod
-from collections import Mapping, MutableMapping, Sequence
+
+try:
+    from collections.abc import Mapping, MutableMapping, Sequence
+except ImportError:
+    from collections import Mapping, MutableMapping, Sequence
 import re
 
 import six
 
 from attrdict.merge import merge
-
 
 __all__ = ['Attr', 'MutableAttr']
 
@@ -35,6 +38,7 @@ class Attr(Mapping):
         than if accessed as an attribute than if it is accessed as an
         item.
     """
+
     @abstractmethod
     def _configuration(self):
         """
@@ -159,6 +163,7 @@ class MutableAttr(Attr, MutableMapping):
     A mixin class for a mapping that allows for attribute-style access
     of values.
     """
+
     def _setattr(self, key, value):
         """
         Add an attribute to the object, without attempting to add it as
